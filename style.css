@@ -689,3 +689,121 @@ li i:hover {
 #awards li:hover {
   transform: translateX(8px);
 }
+
+/* ===================== RESPONSIVE FIXES ===================== */
+
+/* Mobile first adjustments */
+@media screen and (max-width: 1024px) {
+    .container {
+        flex-direction: column; /* stack sidebar and hero */
+        min-height: auto; /* allow scrolling */
+    }
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 15px 0;
+    }
+    .sidebar a {
+        font-size: 16px;
+        padding: 8px 5px;
+        text-align: center;
+    }
+    .hero {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+    #about h1 {
+        font-size: 28px;
+        margin-left: 0;
+    }
+    #about h3, #about-me {
+        margin-left: 0;
+        font-size: 16px;
+    }
+    .social-icons {
+        margin-left: 0;
+        justify-content: center;
+        gap: 12px;
+    }
+    img {
+        width: 100px;
+        height: 100px;
+    }
+    #experience h1.exp, h1, #education h1 {
+        font-size: 26px;
+        margin-left: 0;
+    }
+    #experience h2.frontdev {
+        font-size: 18px;
+        margin-left: 0;
+    }
+    #experience p, #education p, li, #interest p {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 14px;
+    }
+    #education h3, h4 {
+        font-size: 18px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .skills-icons {
+        justify-content: center;
+        gap: 15px;
+    }
+    .skills-icons i {
+        font-size: 35px;
+    }
+}
+
+/* Small phones */
+@media screen and (max-width: 480px) {
+    #about h1 {
+        font-size: 22px;
+    }
+    #about h3, #about-me {
+        font-size: 14px;
+    }
+    .sidebar a {
+        font-size: 14px;
+        padding: 6px 2px;
+    }
+    img {
+        width: 80px;
+        height: 80px;
+    }
+    #experience h1.exp, h1, #education h1 {
+        font-size: 22px;
+    }
+    #experience h2.frontdev {
+        font-size: 16px;
+    }
+    li {
+        font-size: 12px;
+    }
+    .skills-icons i {
+        font-size: 28px;
+    }
+    #interest p {
+        font-size: 12px;
+    }
+    #awards h1 {
+        font-size: 25px;
+    }
+    #awards li {
+        font-size: 14px;
+    }
+}
+
+/* Fix overflowing margins in smaller screens */
+@media screen and (max-width: 768px) {
+    span, #mini, #team, #free, #education h3, #college, #kigs, #work {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
