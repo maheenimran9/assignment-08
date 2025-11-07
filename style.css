@@ -1,0 +1,682 @@
+/* General reset and box-sizing */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* --- Container Styles --- */
+.container{
+    background-color: #8e5572;
+    width: 100vw; 
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+/* --- Sidebar Styles --- */
+.sidebar{
+    width: 20%; 
+    height: 100%;
+    background-color: #5A0000;
+    padding-top: 20px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+
+/* --- Sidebar Anchor/Link Styles --- */
+.sidebar a{
+    font-family: "Architects Daughter", cursive;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-style: normal;
+    text-align: center;
+    font-size: large;
+    color: #ffffff;
+    padding: 10px 0;
+    display: block;
+    width: 80%;
+}
+
+.sidebar a:hover{
+    color: #fff700;
+    text-shadow: 3px 2px 8px #fff700;
+    font-size: x-large;
+}
+
+/* --- Image Styles (Profile Picture) --- */
+img{
+    border-radius: 50%;
+    width: 150px; 
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 30px;
+    border: 5px double rgb(214, 44, 14);
+    transition: all 0.5s ease;
+    position: relative; 
+    overflow: hidden;
+}
+
+img::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        0deg, 
+        transparent, 
+        transparent 30%, 
+        rgb(214, 44, 14)
+    );
+    transform: rotate(-45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+img:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgb(214, 44, 14);
+}
+
+.img:hover::before{
+    opacity: 1;
+    transform: rotate(-45deg) translateY(100%);
+}
+
+    
+/* --- Main Content (Hero) Styles --- */
+.hero {
+    background-color: #ffffff;
+    width: 80%;
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto;
+
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    letter-spacing: 3px;
+}
+
+/* --- Hero Heading Styles --- */
+#about h1 {
+    color: #000000;
+    font-family: "Stalinist One", sans-serif;
+    margin-bottom: 10px;
+    font-size: 40px;
+    position: relative;
+    display: inline-block;
+    margin-left: 30px;
+    padding-top: 1px;
+}
+
+#about h1::after,
+#about h1::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #ff0000, #00ffff);
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+}
+
+#about h1::before {
+  top: -5px;
+  transform-origin: left;
+}
+
+#about h1:hover::after,
+#about h1:hover::before {
+  transform: scaleX(1);
+}
+
+#about b{
+    color:#9e1616;
+}
+
+/* --- Hero Subheading (Address or Role) --- */
+#about h3 {
+    color: #393636;
+    font-size: 18px;
+    margin-left: 40px;
+    font-family: "Architects Daughter", cursive;
+    font-weight: normal;
+}
+
+#about a{
+    color: #5A0000;
+    font-size: larger;
+    font-weight: 600;
+}
+
+#about #about-me{
+    font-family: "Architects Daughter", cursive;
+    padding-top: 40px;
+    margin-left: 20px;
+    word-spacing: 2px;
+    font-weight: 300;
+    font-size: large;
+}
+
+.social-icons {
+    display: flex;
+    gap: 18px;
+    margin-top: 35px;
+    margin-left: 40px;
+}
+
+.social-icons a {
+    background-color: #444;
+    color: #ffffff;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* white icons (override Font Awesome defaults) */
+.social-icons a i {
+    color: #ffffff !important;
+    transition: all 0.4s ease;
+}
+
+/* glowing animated border + movement */
+.social-icons a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, #9e1616, transparent 60%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.4s ease;
+}
+
+.social-icons a:hover::before {
+    opacity: 0.8;
+    transform: scale(1.8);
+}
+
+/* smooth hover animation */
+.social-icons a:hover {
+    background-color: #9e1616;
+    box-shadow: 0 0 20px #9e1616;
+    transform: scale(1.15) rotate(8deg);
+}
+
+.social-icons a:hover i {
+    color: #ffffff !important;
+    transform: scale(1.2);
+}
+
+hr {
+    width: calc(100% + 40px);
+    margin: 10px -20px;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, #9e1616, #ff9a9a, #9e1616);
+    border-radius: 50px;
+    box-shadow: 0 0 10px #9e1616;
+}
+
+       /* Experience */
+
+.exp{
+    color: #9e1616;
+    font-family: "Stalinist One", sans-serif;
+    margin-bottom: 10px;
+    font-size: 30px;
+    position: relative;
+    display: inline-block;
+    margin-left: 30px;
+    padding-top: 1px;   
+}
+
+.exp::after,
+.exp::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #ff0000, #00ffff);
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+}
+
+.exp::before {
+  top: -5px;
+  transform-origin: left;
+}
+
+.exp:hover::after,
+.exp::before {
+  transform: scaleX(1);
+}
+
+
+.frontdev{
+    color: #7f7d7d;
+    font-family: "Stalinist One", sans-serif;
+    margin-bottom: 10px;
+    font-size: 15px;
+    position: relative;
+    display: block;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-top: 10px; 
+    text-align: left;
+}
+
+span {
+    color: #3b3939;
+    font-family: "Carter One", system-ui;
+    font-size: 25px;
+    padding-top: 25px;
+    display: inline-block;
+    margin-left: 26px;
+    margin-right: 130px;
+    vertical-align: middle;
+}
+
+.continue {
+    color: #ff0000;
+    font-family: "Carter One", system-ui;
+    font-size: 14px;
+    margin-left: 10px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+#personal{
+    padding-top: 15px;
+    margin-left: 20px;
+    word-spacing: 2px;
+    font-weight: 300;
+    font-size: large;
+    font-family: "Architects Daughter", cursive;
+}
+
+#mini{
+    color: #3b3939;
+    font-family: "Carter One", system-ui;
+    font-size: 25px;
+    display: inline-block;
+    padding-top: 20px;
+    margin-left: 26px;
+    margin-right: 136px;
+    vertical-align: middle;
+}
+
+#miniweb{
+    padding-top: 15px;
+    margin-left: 20px;
+    word-spacing: 2px;
+    font-weight: 300;
+    font-size: large;
+    font-family: "Architects Daughter", cursive; 
+}
+
+#team{
+    color: #3b3939;
+    font-family: "Carter One", system-ui;
+    font-size: 25px;
+    display: inline-block;
+    padding-top: 20px;
+    margin-left: 26px;
+    margin-right: 130px;
+    vertical-align: middle;
+}
+
+#teamsmit{
+    padding-top: 15px;
+    margin-left: 20px;
+    word-spacing: 2px;
+    font-weight: 300;
+    font-size: large;
+    font-family: "Architects Daughter", cursive; 
+}
+
+#free{
+    color: #3b3939;
+    font-family: "Carter One", system-ui;
+    font-size: 25px;
+    padding-top: 20px;
+    display: inline-block;
+    margin-left: 26px;
+    margin-right: 130px;
+    vertical-align: middle;
+}
+
+#freelance{
+    padding-top: 15px;
+    margin-left: 20px;
+    word-spacing: 2px;
+    font-weight: 300;
+    font-size: large;
+    font-family: "Architects Daughter", cursive; 
+}
+
+#education h1{
+    color: #9e1616;
+    font-family: "Stalinist One", sans-serif;
+    margin-bottom: 10px;
+    font-size: 30px;
+    position: relative;
+    display: inline-block;
+    margin-left: 30px;
+    padding-top: 1px;
+}
+
+#education h1::after,
+#education h1::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #ff0000, #00ffff);
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+}
+
+#education h1::before {
+  top: -5px;
+  transform-origin: left;
+}
+
+#education h1:hover::after,
+#education h1:hover::before {
+  transform: scaleX(1);
+}
+
+
+#education h3{
+    color: #3b3939;
+    font-family: "Carter One", system-ui;
+    font-size: 25px;
+    display: inline-block;
+    padding-top: 25px;
+    margin-left: 26px;
+    margin-right: 130px;
+    vertical-align: middle;
+}
+
+#education #subhead{
+    color: #3b3939;
+    font-family: "Carter One", system-ui;
+    font-size: 15px;
+    display: inline-block;
+    padding-top: 15px;
+    margin-left: 26px;
+    margin-right: 130px;
+    vertical-align: middle;
+}
+
+#education #edu-smit{
+    padding-top: 20px;
+    word-spacing: 2px;
+    font-weight: 300;
+    font-size: large;
+    margin-left: 20px;
+    font-family: "Architects Daughter", cursive;
+}
+
+#college{
+    color: #3b3939;
+    font-family: "Carter One", system-ui;
+    font-size: 25px;
+    display: inline-block;
+    padding-top: 50px;
+    margin-left: 26px;
+    margin-right: 130px;
+    vertical-align: middle;
+}
+
+#field{
+    color: #3b3939;
+    font-family: "Carter One", system-ui;
+    font-size: 15px;
+    display: inline-block;
+    padding-top: 15px;
+    margin-left: 26px;
+    margin-right: 130px;
+    vertical-align: middle; 
+}
+
+#colg-field{
+    padding-top: 20px;
+    word-spacing: 2px;
+    font-weight: 300;
+    font-size: large;
+    margin-left: 20px;
+    font-family: "Architects Daughter", cursive;
+}
+
+#kigs{
+    color: #3b3939;
+    font-family: "Carter One", system-ui;
+    font-size: 25px;
+    display: inline-block;
+    padding-top: 50px;
+    margin-left: 26px;
+    margin-right: 130px;
+    vertical-align: middle;
+}
+
+#matric{
+   color: #3b3939;
+    font-family: "Carter One", system-ui;
+    font-size: 15px;
+    display: inline-block;
+    padding-top: 15px;
+    margin-left: 26px;
+    margin-right: 130px;
+    vertical-align: middle; 
+}
+
+#kigs-matric{
+    padding-top: 20px;
+    word-spacing: 2px;
+    font-weight: 300;
+    font-size: large;
+    margin-left: 20px;
+    font-family: "Architects Daughter", cursive;
+}
+
+h1{
+    color: #9e1616;
+    font-family: "Stalinist One", sans-serif;
+    margin-bottom: 10px;
+    font-size: 30px;
+    position: relative;
+    display: inline-block;
+    margin-left: 30px;
+    padding-top: 20px;
+}
+
+h1::after,
+h1::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #ff0000, #00ffff);
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+}
+
+h1::before {
+  top: -5px;
+  transform-origin: left;
+}
+
+h1:hover::after,
+h1:hover::before {
+  transform: scaleX(1);
+}
+
+
+.skills-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding-top: 10px;
+  margin-top: 15px;
+}
+
+.skills-icons i {
+  font-size: 45px;
+  color: #7a7a7a; /* soft grey */
+  transition: all 0.4s ease;
+  cursor: pointer;
+  transform: translateY(0);
+}
+
+/* Smooth professional hover */
+.skills-icons i:hover {
+  color: #9e1616; /* theme red */
+  transform: translateY(-6px) scale(1.1);
+  text-shadow: 0 0 8px rgba(158, 22, 22, 0.6);
+  filter: drop-shadow(0 0 5px rgba(158, 22, 22, 0.5));
+}
+
+/* Gentle pulse animation (subtle, not flashy) */
+.skills-icons i:hover {
+  animation: softPulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes softPulse {
+  from {
+    text-shadow: 0 0 6px rgba(158, 22, 22, 0.4);
+  }
+  to {
+    text-shadow: 0 0 12px rgba(158, 22, 22, 0.8);
+  }
+}
+
+#work{
+    color: #3b3939;
+    font-family: "Carter One", system-ui;
+    font-size: 30px;
+    display: inline-block;
+    padding-top: 50px;
+    margin-left: 26px;
+    margin-right: 130px;
+    vertical-align: middle; 
+}
+
+li{
+    padding-top: 5px;
+    list-style: none;
+    word-spacing: 2px;
+    font-weight: 300;
+    font-size: large;
+    margin-left: 30px;
+    font-family: "Architects Daughter", cursive;
+}
+
+li i{
+    transform: rotate(15deg);
+}
+
+li i:hover{
+    color: #9e1616;
+    transform: translateY(-6px) scale(1.1);
+    text-shadow: 0 0 8px rgba(158, 22, 22, 0.6);
+    filter: drop-shadow(0 0 5px rgba(158, 22, 22, 0.5));
+}
+
+li i:hover {
+  animation: softPulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes softPulse {
+  from {
+    text-shadow: 0 0 6px rgba(158, 22, 22, 0.4);
+  }
+  to {
+    text-shadow: 0 0 12px rgba(158, 22, 22, 0.8);
+  }
+}
+
+#rest-p{
+    padding-top: 20px;
+    word-spacing: 2px;
+    font-weight: 300;
+    font-size: large;
+    margin-left: 20px;
+    font-family: "Architects Daughter", cursive;
+}
+
+#awards {
+  padding: 40px 60px;
+  font-family: "Architects Daughter", cursive;
+  color: #3b3939;
+}
+
+#awards h1 {
+  color: #9e1616;
+  font-family: "Stalinist One", sans-serif;
+  font-size: 35px;
+  margin-bottom: 25px;
+}
+
+#awards ul {
+  list-style: none;
+  padding: 0;
+}
+
+#awards li {
+  font-size: 18px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+#awards i {
+  transform: rotate(0deg);
+  color: #555;
+  font-size: 22px;
+  transition: all 0.4s ease;
+}
+
+#awards li:hover i {
+  color: #9e1616;
+  text-shadow: 0 0 10px #9e1616;
+  transform: scale(1.2);
+}
+
+#awards li:hover {
+  transform: translateX(8px);
+}
