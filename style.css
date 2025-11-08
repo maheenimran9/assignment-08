@@ -690,120 +690,150 @@ li i:hover {
   transform: translateX(8px);
 }
 
-/* ===================== RESPONSIVE FIXES ===================== */
+/* ===================== RESPONSIVENESS IMPROVED ===================== */
 
-/* Mobile first adjustments */
-@media screen and (max-width: 1024px) {
-    .container {
-        flex-direction: column; /* stack sidebar and hero */
-        min-height: auto; /* allow scrolling */
-    }
-    .sidebar {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 15px 0;
-    }
-    .sidebar a {
-        font-size: 16px;
-        padding: 8px 5px;
-        text-align: center;
-    }
-    .hero {
-        width: 100%;
-        padding: 15px;
-    }
+/* For screens smaller than 1200px */
+@media screen and (max-width: 1200px) {
+  .sidebar {
+    width: 25%;
+  }
+  .hero {
+    width: 75%;
+  }
 }
 
-/* Tablet */
+/* For laptops and tablets */
+@media screen and (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    position: relative;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .sidebar a {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+  .hero {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+/* For tablets (768px and below) */
 @media screen and (max-width: 768px) {
-    #about h1 {
-        font-size: 28px;
-        margin-left: 0;
-    }
-    #about h3, #about-me {
-        margin-left: 0;
-        font-size: 16px;
-    }
-    .social-icons {
-        margin-left: 0;
-        justify-content: center;
-        gap: 12px;
-    }
-    img {
-        width: 100px;
-        height: 100px;
-    }
-    #experience h1.exp, h1, #education h1 {
-        font-size: 26px;
-        margin-left: 0;
-    }
-    #experience h2.frontdev {
-        font-size: 18px;
-        margin-left: 0;
-    }
-    #experience p, #education p, li, #interest p {
-        margin-left: 0;
-        margin-right: 0;
-        font-size: 14px;
-    }
-    #education h3, h4 {
-        font-size: 18px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .skills-icons {
-        justify-content: center;
-        gap: 15px;
-    }
-    .skills-icons i {
-        font-size: 35px;
-    }
+  img {
+    width: 100px;
+    height: 100px;
+  }
+  #about h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-left: 0;
+  }
+  #about h3, #about-me {
+    font-size: 16px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  .social-icons {
+    justify-content: center;
+    margin: 20px 0;
+  }
+  span, #mini, #team, #free, #education h3, #college, #kigs, #work {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  li {
+    margin-left: 10px;
+    font-size: 15px;
+  }
+  .skills-icons i {
+    font-size: 36px;
+  }
 }
 
-/* Small phones */
+/* For small phones (480px and below) */
 @media screen and (max-width: 480px) {
-    #about h1 {
-        font-size: 22px;
-    }
-    #about h3, #about-me {
-        font-size: 14px;
-    }
-    .sidebar a {
-        font-size: 14px;
-        padding: 6px 2px;
-    }
-    img {
-        width: 80px;
-        height: 80px;
-    }
-    #experience h1.exp, h1, #education h1 {
-        font-size: 22px;
-    }
-    #experience h2.frontdev {
-        font-size: 16px;
-    }
-    li {
-        font-size: 12px;
-    }
-    .skills-icons i {
-        font-size: 28px;
-    }
-    #interest p {
-        font-size: 12px;
-    }
-    #awards h1 {
-        font-size: 25px;
-    }
-    #awards li {
-        font-size: 14px;
-    }
+  .sidebar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sidebar a {
+    font-size: 14px;
+    padding: 6px;
+  }
+  img {
+    width: 80px;
+    height: 80px;
+  }
+  #about h1 {
+    font-size: 22px;
+  }
+  #about h3, #about-me {
+    font-size: 14px;
+    text-align: center;
+  }
+  #experience h1, #education h1, #skills h1, #awards h1 {
+    font-size: 22px;
+  }
+  .skills-icons {
+    gap: 10px;
+  }
+  .skills-icons i {
+    font-size: 28px;
+  }
+  li {
+    font-size: 13px;
+  }
+  #rest-p {
+    font-size: 13px;
+  }
 }
 
-/* Fix overflowing margins in smaller screens */
-@media screen and (max-width: 768px) {
-    span, #mini, #team, #free, #education h3, #college, #kigs, #work {
-        margin-left: 5%;
-        margin-right: 5%;
-    }
+/* ===================== FINAL FIX FOR IMAGE SHRINK ISSUE ===================== */
+
+.hero img,
+#about img,
+.sidebar img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
 }
+
+/* Prevent images from being squished by flexbox */
+.hero,
+#about,
+.sidebar {
+  align-items: center;
+}
+
+/* Ensure section heights adjust naturally */
+.hero, 
+.container, 
+#about, 
+#experience, 
+#skills, 
+#education, 
+#awards, 
+#interest {
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* Fix any potential overflow caused by scaling */
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
